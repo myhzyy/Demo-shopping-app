@@ -18,6 +18,23 @@
         @RenderBody()
         </div>
         </main>
+
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
+    <div id="addedToast"
+         class="toast text-bg-success border-0"
+         role="alert"
+         aria-live="assertive"
+         aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                @TempData["AddedMessage"]
+            </div>
+            <button type="button"
+                    class="btn-close btn-close-white me-2 m-auto"
+                    data-bs-dismiss="toast"></button>
+        </div>
+    </div>
+</div>
     </div>
     
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -25,5 +42,17 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/cart.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var toastEl = document.getElementById('addedToast');
+
+        if (toastEl && toastEl.querySelector('.toast-body').innerText.trim() !== "") {
+            var toast = new bootstrap.Toast(toastEl);
+            toast.show();
+        }
+    });
+</script>
+
 </body>
 </html>

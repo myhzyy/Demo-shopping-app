@@ -12,6 +12,9 @@ public class CartController : Controller
     public async Task<IActionResult> AddItemsToOrder(int id, int productId)
     {
     await _cartService.AddItemToCart(id, productId);
+
+    TempData["AddedMessage"] = "Item Added To Cart!";
+
     return RedirectToAction("Index", "Home");
     }
 
