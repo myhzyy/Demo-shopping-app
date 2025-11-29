@@ -25,29 +25,28 @@ public class AppDbContext : DbContext
 
         /// Seeding data -
         modelBuilder.Entity<Product>().HasData(
-        new Product {
+    new Product {
         Id = 1,
         ProductName = "T-Shirt",
         Description = "Classic oversized washed tee.",
         Price = 15.00m,
-        ImageUrl = "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"
-        },
-        new Product {
+        ImageUrl = "/images/stussy-t-shirt.jpg"
+    },
+    new Product {
         Id = 2,
         ProductName = "Leg Warmers",
         Description = "Knitted retro leg warmers.",
         Price = 10.00m,
-        ImageUrl = "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c"
-        },
-        new Product {
+        ImageUrl = "/images/leg-warmers.jpg"
+    },
+    new Product {
         Id = 3,
-        ProductName = "Carhart Jacket",
+        ProductName = "Carhartt Jacket",
         Description = "Heavy-duty lined winter jacket.",
         Price = 200.00m,
-        ImageUrl = "https://images.unsplash.com/photo-1523381294911-8d3cead13475"
+        ImageUrl = "/images/carhartt-jacket.jpg"
     }
 );
-
 
         modelBuilder.Entity<Customer>().HasData(
         new Customer {Id = 1, CustomerName = "Jordan Lawrence"},
