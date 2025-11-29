@@ -18,6 +18,10 @@
                         <li class="list-group-item d-flex justify-content-between">
                             <span>@item.Product.ProductName</span>
                             <span class="badge bg-secondary">x @item.Quantity</span>
+
+                                <form asp-controller="Cart" asp-action="RemoveItem">
+                            <button name="orderLineItem" value="@item.Id" class="border rounded" type="submit">Remove</button>
+                                </form>
                         </li>
                     }
                 </ul>

@@ -52,4 +52,12 @@ public class CartService
         await _appDbContext.SaveChangesAsync();
 
         }
+
+
+    public async Task RemoveCartItem(int orderLineItem)
+    {
+        var orderLineItemSelector = await _appDbContext.OrderLineitems.FirstAsync(e => e.Id == orderLineItem);        
+        _appDbContext.OrderLineitems.Remove(orderLineItemSelector);
+        await _appDbContext.SaveChangesAsync();
+    }
     }

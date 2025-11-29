@@ -9,10 +9,18 @@ public class CartController : Controller
         _cartService = cartService;
     }   
 
-
     public async Task<IActionResult> AddItemsToOrder(int id, int productId)
     {
     await _cartService.AddItemToCart(id, productId);
     return RedirectToAction("Index", "Home");
+    }
+
+    public async Task<IActionResult> RemoveItem(int orderLineItem)
+    {
+
+
+        await _cartService.RemoveCartItem(orderLineItem);
+
+        return RedirectToAction("Cart", "Home");
     }
 }
